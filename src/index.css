@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-canvas: #f8fafc;
+    --bg-surface: #ffffff;
+    --border-subtle: #e2e8f0;
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --text-muted: #94a3b8;
+    color-scheme: light;
+  }
+
+  .dark {
+    --bg-canvas: #0c0e12;
+    --bg-surface: #131720;
+    --border-subtle: #242a3b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  /* Números tabulares para evitar saltos en cifras y alineación contable perfecta */
+  .tabular-numbers, .font-mono {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+  }
+}
+
+/* Scrollbar sobrio y elegante */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.4);
+}
+
+/* Sliders limpios sin brillos fluorescentes ni halos de IA */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  height: 20px;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  background: #2b3345;
+  border-radius: 2px;
+}
+
+.light input[type="range"]::-webkit-slider-runnable-track {
+  background: #cbd5e1;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -6px;
+  background-color: #10b981;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  border: 2px solid #0c0e12;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition: transform 0.1s ease;
+}
+
+.light input[type="range"]::-webkit-slider-thumb {
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+/* Modo privacidad (ocultar balances) */
+.privacy-blur {
+  filter: blur(8px);
+  user-select: none;
+  transition: filter 0.2s ease;
+}
